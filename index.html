@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>sortIt!</title>
+  <style>
+    table {
+      width: 80%;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 5px;
+      text-align: left;
+    }
+
+    table#tableRef tr:nth-child(even) {
+      background-color: #ddd;
+    }
+
+    table#tableRef tr:nth-child(odd) {
+      background-color: #fafafa;
+    }
+
+    table#tableRef th {
+      background-color: rgb(226, 114, 91);
+      color: rgb(255, 255, 255);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="id">why wont my code work?</div>
+  <br></br>
+  <div class="searchBar">
+    <input id ="search" type="text" onkeyup="searchQuery(event)" placeholder="Search..">
+  </div>
+  <br></br>
+  <header></header>
+  <table id="tableRef" border="1" cellpadding="4">
+    
+  </table>
+  <script src="sortData.js"></script>
+  <script type="text/javascript" src="MOCK_DATA.json"></script>
+  <script>
+    
+  </script>
+</body>
+
+</html>
