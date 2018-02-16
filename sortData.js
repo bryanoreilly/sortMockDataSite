@@ -26,8 +26,16 @@ function init() {
 
     // Parse JSON string into an array of objects
     var actual_JSON = JSON.parse(response);
-    fnAddTableRows = function (sData) {
-      sBigData += `<tr>` + `<td>` + sData.id + `</td>` + `<td>` + sData.first_name + `</td>` + `<td>` + sData.last_name + `</td>` + `<td>` + sData.gender + `</td>` + `<td>` + sData.ip_address + `</td>` + `</tr>`;
+
+
+		fnAddTableRows = function (sData) {
+			var iterator = sData.keys();
+			var row;
+			for (let key of iterator)
+			{
+				row += tableData(sData[key]);
+			}
+      sBigData += tableRow(row);
     }
 
     actual_JSON.forEach(fnAddTableRows);
@@ -35,6 +43,19 @@ function init() {
   })
 
 }
+
+// takes in a list of table data, and wraps it in a row
+var  tableRow = function(row)
+{
+	return String.raw`<tr>${row}</tr>`+"\n";
+}
+
+// returns data wrapped in datatags
+var tableData = function(data)
+{
+	return String.raw`<td>${data}</td>`+"\n";
+}
+
 
 function searchQuery(e){
   //var currentValue = searchBar.value;
@@ -54,12 +75,12 @@ function searchQuery(e){
       } else {
         tr[i].style.display = "none";
       }
-    } 
+    }
   }
 
 }
 
-// original rows 
+// original rows
 
 // current rows
 
@@ -71,6 +92,3 @@ function searchQuery(e){
 console.log("help me please");
 
 init();
-
-
-
